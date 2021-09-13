@@ -10,26 +10,22 @@ $(function(){
     $('.editData').on('click', function (){
         $('#formModalLabel').html('Edit Sektor');
         $('.modal-footer button[type=submit]').html('Edit');
-
-        const id = $(this).data('id');
-        const kd_sektor = $(this).data('kd_sektor');
-        const nm_sektor = $(this).data('nm_sektor');
-        const nm_dir = $(this).data('nm_dir');
-        const level_dir = $(this).data('level_dir');
-
-        // $.ajax({
-        //     url: 'http://localhost/bnilogin/edit.php/editdata',
-        //     data: {id : id},
-        //     method: 'post',
-            
-        //     success: function(data) {
-        //         console.log(data);
-        //     }
-        // });
-        
-
-        
-
+        var position = $(this).data('id');
+        if($(this).data('href') == "sektor"){
+            var kd_sektor = $('.kd_sektor'+position).text();
+            var nm_sektor = $('.nm_sektor'+position).text();
+            var nm_dir = $('.nm_dir'+position).text();
+            var level_dir = $('.level_dir'+position).text();
+            var status = $('.status'+position).text();
+            $('#form').attr('action','update.php');
+            $('#id_sektor').text(position);
+            $('#kd_sektor').val(kd_sektor);
+            $('#nm_sektor').val(nm_sektor);
+            $('#nm_dir').val(nm_dir);
+            $('#level_dir').val(level_dir);
+            $('#status').val(status);
+        }
+     
     });
 
 });

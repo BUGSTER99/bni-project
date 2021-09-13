@@ -1,7 +1,7 @@
 <?php 
     
     $conn = mysqli_connect('localhost', 'root', '', 'bni_multiuser') or die(mysqli_error($conn));
-
+    $prefix = "tbl_pmg_";
     // Query ke Database
     function query($query)
     {

@@ -10,7 +10,7 @@
             </script>";
 	}
 
-    $kodesektor = query("SELECT * FROM risiko")
+    $kodesektor = query("SELECT * FROM ".$prefix."risiko")
 
 ?>
 <!DOCTYPE html>
@@ -25,7 +25,7 @@
 
 <!-- Bootstrap CSS CDN -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-<!-- Our Custom CSS -->
+<link rel="stylesheet" href="../../assets/DataTables/datatables.min.css">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="icon" href="../favicon.ico">
 
@@ -144,7 +144,8 @@
             </div>
         </nav>
         
-        <table border="2" cellpadding = 10 cellspacing = 0>
+        <table class="table table-stripped table-bordered" id="myTable"> 
+            <thead>
                     <tr>
                         <td>No.</td>
                         <td>ID WILAYAH</td>
@@ -155,6 +156,8 @@
                         <td>STATUS</td>
                         <td>AKSI</td>
                     </tr>
+                    </thead>
+                    <tbody>
                     <?php $i = 1; ?>
                     <?php foreach($kodesektor as $kode) : ?>
                     <tr>
@@ -169,20 +172,20 @@
                     </tr>
                     <?php $i++; ?>
                     <?php endforeach; ?>
+                    </tbody>
         </table>
         
     </div>
 </div>
 
-<!-- jQuery CDN - Slim version (=without AJAX) -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<!-- Popper.JS -->
+<script src="../../assets/DataTables/datatables.min.js"></script>
+<script src="../js/script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-<!-- Bootstrap JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
 <script type="text/javascript">
     $(document).ready(function () {
+        $('#myTable').DataTable();
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
         });
