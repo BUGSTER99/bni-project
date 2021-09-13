@@ -28,7 +28,7 @@
         $table = $data['table'];
         switch ($table) {
             case 'sektor':
-                $values =  "kd_sektor='".$data['kd_sektor']."',nm_sektor='".$data['nm_sektor']."',nm_dir='".$data['nm_dir']."',level_dir='".$data['level_dir']."'";
+                $values =  "kd_sektor='".$data['kd_sektor']."',nm_sektor='".$data['nm_sektor']."',nm_dir='".$data['nm_dir']."',level_dir='".$data['level_dir']."',status='".$data['status']."'";
                 break;
             // case 'divisi':
             //         $values =  "'', '".$data['kd_sektor']."', '".$data['kd_divisi']."', '".$data['nm_divisi']."','".$data['nm_gm']."','".$data['tipe_divisi']."','".$data['level_divisi']."','". $data['status'] ."'";

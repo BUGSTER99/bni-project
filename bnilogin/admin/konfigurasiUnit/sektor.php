@@ -206,6 +206,15 @@
                                     <option id="SeVP" value="SeVP">SeVP</option>
                                 </select>
                                 </div>
+                                <div class="form-group">
+                                <label for="level_dir">Status</label>
+                                <br>
+                                <select class="form-select" id="status" name="status" required>
+                                    <option value=""><strong>-Pilih status-</strong></option>
+                                    <option id="AKTIF" value="AKTIF">AKTIF</option>
+                                    <option id="T_AKTIF" value="TIDAK AKTIF">TIDAK AKTIF</option>
+                                </select>
+                                </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

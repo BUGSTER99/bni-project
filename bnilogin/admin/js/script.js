@@ -24,7 +24,11 @@ $(function(){
             $('#nm_sektor').val(nm_sektor);
             $('#nm_dir').val(nm_dir);
             $('#'+level_dir).attr('selected',true);
-            $('#status').val(status);
+            if(status == "AKTIF"){
+                $('#AKTIF').attr('selected',true);
+            } else {
+                $('#T_AKTIF').attr('selected',true);
+            }
         } else if($(this).data('href') == "divisi"){
             $('#exampleModalLabel').html('Edit Divisi');
             $('.modal-footer button[type=submit]').html('Edit');
