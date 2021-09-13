@@ -172,14 +172,14 @@
                     <?php foreach($kodesektor as $kode) : ?>
                     <tr>
                         <td> <?= $i;?> </td> 
-                        <td><?= $kode["kd_sektor"];?> </td>
-                        <td><?= $kode["kd_divisi"];?></td>
-                        <td><?= $kode["nm_divisi"];?></td>
-                        <td><?= $kode["nm_gm"];?></td>
-                        <td><?= $kode["tipe_divisi"];?></td>
-                        <td><?= $kode["level_divisi"];?></td>
+                        <td class="kd_sektor<?=$kode['id']?>"><?= $kode["kd_sektor"];?> </td>
+                        <td class="kd_divisi<?=$kode['id']?>"><?= $kode["kd_divisi"];?></td>
+                        <td class="nm_divisi<?=$kode['id']?>"><?= $kode["nm_divisi"];?></td>
+                        <td class="nm_gm<?=$kode['id']?>"><?= $kode["nm_gm"];?></td>
+                        <td class="tipe_divisi<?=$kode['id']?>"><?= $kode["tipe_divisi"];?></td>
+                        <td class="level_divisi<?=$kode['id']?>"><?= $kode["level_divisi"];?></td>
                         <td><?= $kode["status"];?></td>
-                        <td><a href="../../clean.php?id=<?= $kode["id"]; ?>&table=divisi" onclick="return confirm('Hapus Data?');"><i class="fa fa-trash" aria-hidden="true"></i></a> | <a href="../../edit.php?id=<?=$kode["id"];?>"> <i class="fas fa-pencil-alt" aria-hidden="true"></i> </a> </td>
+                        <td><a href="../../clean.php?id=<?= $kode["id"]; ?>&table=divisi" onclick="return confirm('Hapus Data?');"><i class="fa fa-trash" aria-hidden="true"></i></a> | <a href="../../edit.php?id=<?=$kode["id"];?>" data-id="<?=$kode['id']?>" class="editData" data-href="divisi" data-bs-toggle="modal" data-bs-target="#modalBox"> <i class="fas fa-pencil-alt" aria-hidden="true"></i> </a> </td>
                     </tr>
                     <?php $i++; ?>
                     <?php endforeach; ?>
@@ -205,26 +205,26 @@
                         </div>
                         <div class="modal-body">
                         <div class="mb-3">
-                            <label for="id" class="form-label">ID Divisi : <?= $kode["id"];?> </label>
+                            <label for="id" class="form-label">ID Divisi : <span  id="id_divisi"></span> </label>
                             </div>
                         <div class="mb-3">
                             <label for="kd_sektor" class="form-label">Kode Sektor :</label>
                             <select class="form-select" id="kd_sektor" name="kd_sektor" required>
                                     <option value=""><strong>-Pilih Sektor-</strong></option>
-                                    <option value="DIU">DIU</option>
-                                    <option value="WADIU">WADIU</option>
-                                    <option value="DKP">DKP</option>
-                                    <option value="DMK">DMK</option>
-                                    <option value="DKR">DKR</option>
-                                    <option value="DKU">DKU</option>
-                                    <option value="DTS">DTS</option>
-                                    <option value="DHL">DHL</option>
-                                    <option value="DMR">DMR</option>
-                                    <option value="DHN">DHN</option>
-                                    <option value="DTI">DTI</option>
-                                    <option value="SRR">SRR</option>
-                                    <option value="SJR">SJR</option>
-                                    <option value="DLJ">DLJ</option>
+                                    <option id="DIU" value="DIU">DIU</option>
+                                    <option id="WADIU" value="WADIU">WADIU</option>
+                                    <option id="DKP" value="DKP">DKP</option>
+                                    <option id="DMK" value="DMK">DMK</option>
+                                    <option id="DKR" value="DKR">DKR</option>
+                                    <option id="DKU" value="DKU">DKU</option>
+                                    <option id="DTS" value="DTS">DTS</option>
+                                    <option id="DHL" value="DHL">DHL</option>
+                                    <option id="DMR" value="DMR">DMR</option>
+                                    <option id="DHN" value="DHN">DHN</option>
+                                    <option id="DTI" value="DTI">DTI</option>
+                                    <option id="SRR" value="SRR">SRR</option>
+                                    <option id="SJR" value="SJR">SJR</option>
+                                    <option id="DLJ" value="DLJ">DLJ</option>
                             </select>
                             <input type="hidden"  id="table" name="table" value="divisi">
                         </div>
@@ -245,8 +245,8 @@
                                 <br>
                                 <select class="form-select" id="tipe_divisi" name="tipe_divisi" required>
                                     <option value=""><strong>-Pilih Tipe-</strong></option>
-                                    <option value="BUSINESS">Business Unit</option>
-                                    <option value="FUNCTION">Functional Unit</option>
+                                    <option id="BUSINESS" value="BUSINESS">Business Unit</option>
+                                    <option id="FUNCTION" value="FUNCTION">Functional Unit</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -254,9 +254,9 @@
                                 <br>
                                 <select class="form-select" id="level_divisi" name="level_divisi" required>
                                     <option value=""><strong>-Pilih Level-</strong></option>
-                                    <option value="divisi">Divisi</option>
-                                    <option value="satuan">Satuan</option>
-                                    <option value="unit">unit</option>
+                                    <option id="DIVISI" value="divisi">Divisi</option>
+                                    <option id="SATUAN" value="satuan">Satuan</option>
+                                    <option id="UNIT" value="unit">unit</option>
                                 </select>
                                 </div>
                         </div>

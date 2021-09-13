@@ -149,7 +149,7 @@
                     <?php foreach($kodesektor as $kode) : ?>
                     <tr>
                         <td> <?= $i;?> </td> 
-                        <td class="kd_sektor<?=$kode["id"]?>"><?= $kode["kd_sektor"];?> </td>
+                        <td class="kd_sektor<?=$kode["id"]?>"><?= $kode["kd_sektor"];?></td>
                         <td class="nm_sektor<?=$kode["id"]?>"><?= $kode["nm_sektor"];?></td>
                         <td class="nm_dir<?=$kode["id"]?>"><?= $kode["nm_dir"];?></td>
                         <td class="level_dir<?=$kode["id"]?>"><?= $kode["level_dir"];?></td>
@@ -187,6 +187,7 @@
                             <label for="kd_sektor" class="form-label">Kode Sektor</label>
                             <input type="text" class="form-control" id="kd_sektor" name="kd_sektor" required>
                             <input type="hidden"  id="table" name="table" value="sektor">
+                            <input type="hidden"  id="id" name="id">
                             </div>
                         <div class="mb-3">
                             <label for="nm_sektor" class="form-label">Nama Sektor</label>
@@ -201,8 +202,8 @@
                                 <br>
                                 <select class="form-select" id="level_dir" name="level_dir" required>
                                     <option value=""><strong>-Pilih Level-</strong></option>
-                                    <option value="Direktur">Direktur</option>
-                                    <option value="SeVP">SeVP</option>
+                                    <option id="DIREKTUR" value="DIREKTUR">DIREKTUR</option>
+                                    <option id="SeVP" value="SeVP">SeVP</option>
                                 </select>
                                 </div>
                         </div>

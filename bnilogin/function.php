@@ -22,10 +22,39 @@
         return mysqli_affected_rows($conn);
     } 
 
-    function edit($id){
+    function edit($data){
         global $conn;
+        global $prefix;
+        $table = $data['table'];
+        switch ($table) {
+            case 'sektor':
+                $values =  "kd_sektor='".$data['kd_sektor']."',nm_sektor='".$data['nm_sektor']."',nm_dir='".$data['nm_dir']."',level_dir='".$data['level_dir']."'";
+                break;
+            // case 'divisi':
+            //         $values =  "'', '".$data['kd_sektor']."', '".$data['kd_divisi']."', '".$data['nm_divisi']."','".$data['nm_gm']."','".$data['tipe_divisi']."','".$data['level_divisi']."','". $data['status'] ."'";
+            //     break;
+            // case 'wilayah':
+            //         $values =  "'', '".$data['id_wil']."', '".$data['kd_wil']."', '".$data['nm_wil']."','".$data['nm_ceo']."','".$data['status']."'";
+            //     break;
+            // case 'cabang':
+            //         $values =  "'', '".$data['id_wil']."', '".$data['id_cab']."', '".$data['kd_cab']."','".$data['nm_cab']."','".$data['tipe_cab_1']."','".$data['tipe_cab_2']."','". $data['status'] ."'";
+            //     break;   
+            // case 'sentra':
+            //         $values =  "'', '".$data['id_wil']."', '".$data['id_sentra']."', '".$data['kd_sentra']."','".$data['nm_sentra']."','".$data['tipe_sentra']."','". $data['status'] ."'";
+            //     break;
+            // case 'perusahaan':
+            //         $values =  "'', '".$data['kd_pa']."', '".$data['nm_pa']."', '".$data['nm_dir']."','".$data['status']."'";
+            //         break;   
+            // case 'cabangln':
+            //         $values =  "'', '".$data['id_cab']."', '".$data['kd_cab']."', '".$data['nm_cab']."','".$data['status']."'";
+            //         break; 
 
-        
+            //     default :
+            //         break;
+        }
+        $query = "UPDATE $prefix$table SET $values WHERE id=".$data['id']."";
+        mysqli_query($conn, $query);
+        return mysqli_affected_rows($conn);
     }
 
 
